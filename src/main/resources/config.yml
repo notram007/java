@@ -1,0 +1,112 @@
+# ===================================================
+#  Pillars of Fortune - Configuration (Multi-Arena)
+# ===================================================
+
+game:
+  min-players: 2
+  max-players: 16
+  countdown-seconds: 15
+  loot-interval-seconds: 5
+  items-per-drop: 1
+  max-duration-seconds: 300
+  cancel-fall-damage: true
+
+# ===================================================
+#  LOOT TABLE — fully customisable
+# ===================================================
+# Each tier has a weight (out of total weight across all tiers).
+# Default: junk=50, common=30, useful=15, rare=5 → total 100
+#
+# Each item entry:
+#   material: EXACT Bukkit material name (must be a valid item)
+#   min-amount: minimum quantity given
+#   max-amount: maximum quantity given
+#
+# Find all material names at:
+#   https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+
+loot:
+  junk:
+    weight: 50
+    items:
+      - { material: DIRT,          min-amount: 1, max-amount: 1 }
+      - { material: GRAVEL,        min-amount: 1, max-amount: 1 }
+      - { material: SAND,          min-amount: 1, max-amount: 1 }
+      - { material: COBBLESTONE,   min-amount: 1, max-amount: 1 }
+      - { material: OAK_LOG,       min-amount: 1, max-amount: 1 }
+      - { material: STICK,         min-amount: 1, max-amount: 1 }
+      - { material: STRING,        min-amount: 1, max-amount: 1 }
+      - { material: FEATHER,       min-amount: 1, max-amount: 1 }
+      - { material: BONE,          min-amount: 1, max-amount: 1 }
+
+  common:
+    weight: 30
+    items:
+      - { material: STONE,         min-amount: 4, max-amount: 16 }
+      - { material: OAK_PLANKS,    min-amount: 4, max-amount: 16 }
+      - { material: GLASS,         min-amount: 2, max-amount: 8  }
+      - { material: LADDER,        min-amount: 2, max-amount: 8  }
+      - { material: WOODEN_SWORD,  min-amount: 1, max-amount: 1  }
+      - { material: STONE_SWORD,   min-amount: 1, max-amount: 1  }
+      - { material: BREAD,         min-amount: 2, max-amount: 6  }
+      - { material: COOKED_BEEF,   min-amount: 1, max-amount: 4  }
+
+  useful:
+    weight: 15
+    items:
+      - { material: IRON_SWORD,      min-amount: 1, max-amount: 1 }
+      - { material: IRON_CHESTPLATE, min-amount: 1, max-amount: 1 }
+      - { material: IRON_HELMET,     min-amount: 1, max-amount: 1 }
+      - { material: IRON_BOOTS,      min-amount: 1, max-amount: 1 }
+      - { material: BOW,             min-amount: 1, max-amount: 1 }
+      - { material: ARROW,           min-amount: 4, max-amount: 16 }
+      - { material: SHIELD,          min-amount: 1, max-amount: 1 }
+      - { material: GOLDEN_CARROT,   min-amount: 2, max-amount: 4 }
+      - { material: ENDER_PEARL,     min-amount: 1, max-amount: 2 }
+      - { material: SNOWBALL,        min-amount: 4, max-amount: 16 }
+
+  rare:
+    weight: 5
+    items:
+      - { material: DIAMOND_SWORD,      min-amount: 1, max-amount: 1 }
+      - { material: DIAMOND_CHESTPLATE, min-amount: 1, max-amount: 1 }
+      - { material: DIAMOND_HELMET,     min-amount: 1, max-amount: 1 }
+      - { material: DIAMOND_LEGGINGS,   min-amount: 1, max-amount: 1 }
+      - { material: DIAMOND_BOOTS,      min-amount: 1, max-amount: 1 }
+      - { material: GOLDEN_APPLE,       min-amount: 1, max-amount: 1 }
+      - { material: ENDER_PEARL,        min-amount: 2, max-amount: 4 }
+      - { material: TRIDENT,            min-amount: 1, max-amount: 1 }
+      - { material: ELYTRA,             min-amount: 1, max-amount: 1 }
+
+messages:
+  prefix: "&6&l[PoF] &r"
+  join: "&a{player} &7joined &b{arena} &7(&e{current}&7/&e{max}&7)"
+  leave: "&c{player} &7left &b{arena} &7(&e{current}&7/&e{max}&7)"
+  countdown-start: "&7Enough players! Starting in &e{seconds} &7seconds..."
+  countdown-tick: "&7Game starting in &e{seconds}&7..."
+  game-start: "&a&lThe game has begun! &7Random loot will rain down every &e{interval} &7seconds!"
+  loot-received: "&7You received: &b{item}"
+  eliminated: "&c&lYou were eliminated! &7Better luck next time."
+  eliminated-void: "&c&lYou fell off the map and were eliminated!"
+  player-eliminated-broadcast: "&c{player} &7has been eliminated! &7(&e{remaining} &7remaining)"
+  win: "&6&l{player} &e&lwon the game!"
+  win-broadcast: "&6&l{player} &e&lis the last one standing and wins Pillars of Fortune in &b{arena}&e&l!"
+  not-enough-pillars: "&cNot enough pillars registered in &b{arena} &cfor this many players! Registered: {registered}"
+  game-already-running: "&cA game is already in progress in &b{arena}&c."
+  no-game-running: "&cThere is no game currently running in &b{arena}&c."
+  pillar-set: "&aPillar registered in &b{arena} &aat your current location! Total pillars: {count}"
+  pillar-removed: "&cClosest pillar removed from &b{arena}&c. Total pillars: {count}"
+  must-be-in-lobby-world: "&cYou must be standing in the arena's lobby world to do this."
+  sign-created: "&aJoin sign created for arena &b{arena}&a!"
+  game-full: "&cArena &b{arena} &cis full."
+  already-in-game: "&cYou are already in arena &b{arena}&c."
+  not-in-any-game: "&cYou are not currently in any arena."
+  arena-not-found: "&cNo arena named &b{arena} &cexists."
+  arena-already-exists: "&cAn arena named &b{arena} &calready exists."
+  arena-created: "&aArena &b{arena} &acreated! Now set its lobby with /pof arena setlobby {arena}"
+  arena-removed: "&cArena &b{arena} &cdeleted."
+  arena-list-header: "&6&lArenas &7({count}):"
+  arena-list-entry: "&7 - &b{arena} &7[&e{state}&7] &7({current}/{max} players)"
+  arena-lobby-set: "&aLobby for &b{arena} &aset to your current location."
+  arena-mapcenter-set: "&aMap center for &b{arena} &aset to your current location."
+  arena-lobby-not-set: "&cArena &b{arena} &chas no lobby set yet. Use /pof arena setlobby {arena} first."

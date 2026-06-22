@@ -1,0 +1,37 @@
+name: PillarsOfFortune
+version: 2.0.5
+main: com.pof.plugin.PillarsOfFortune
+api-version: '1.21'
+author: YourName
+description: A recreation of CubeCraft's "Pillars of Fortune" minigame for Paper servers, with multi-arena support and WorldGuard region integration.
+softdepend:
+  - WorldGuard
+  - WorldEdit
+
+commands:
+  pof:
+    description: Main command for Pillars of Fortune
+    usage: |
+      /pof arena create <name>
+      /pof arena remove <name>
+      /pof arena list
+      /pof arena setlobby <name>
+      /pof arena setmapcenter <name>
+      /pof setpillar <name>
+      /pof removepillar <name>
+      /pof liststate <name>
+      /pof forcestart <name>
+      /pof stop <name>
+      /pof join <name>
+      /pof leave
+      /pof reload
+    permission: pof.play
+    permission-message: You don't have permission to use Pillars of Fortune.
+
+permissions:
+  pof.admin:
+    description: Allows management of Pillars of Fortune arenas
+    default: op
+  pof.play:
+    description: Allows joining Pillars of Fortune games
+    default: true
